@@ -30,10 +30,33 @@ Book Rating Distribution   |  Book Rating Box Plot
 
 ## Modeling (Classification)
 Please refer to Notebook3
+**Features**
+- Lemmatized words from book description text (~6000 features)
+- Book author average rating (one column applied MinMaxScaler)
+- Top book publisher via One Hot Encoding (~30 features)
+
+### Base model: Logistic Regression
+
+Base model identified the top words that are more associated with higher ratings, such as like 'gerald'-character in "Elephant & Piggie", 'geronimo' - character of Geronimo Stilton, are quite popluar Children's books with very good reviews. Words with high coefficients also include 'series', 'edition', 'collection' etc., which shows that books with series are tend to related more with high ratings. And in fact, when books with good rating, they tend to generate more following up series.
+
+<p align="center">
+<img src="image/top20words.png" width="900" height="400" />
+</p>
+
+
+### Bagging (Ensemble Model) on Logistic Regression
+Applied Bagging method on Logistic Regression, which improved f1 score from 71% to 73%.
+
+### Random Forest
+Applied Random Forest to allow non-linear separation for the model.
+
+### XGBoosting on Random Forest
+Applied XGBoosting to enhance the underfitting with the previous Random Forest Model.
+
 Applied Logistic Regression with bagging ensemble method, Random Forest Classifer(Decision Tree), Enhance the Random Forest with XGBoost
 
 <p align="center">
-<img src="image/ModelRocCurve.png" width="600" height="400" />
+<img src="image/ModelRocCurve.png" width="500" height="500" />
 </p>
 
 ## Summary
@@ -44,3 +67,5 @@ Applied different classifiers on the book dataset to predict book rating,
 - Applied ensemble methods, including bagging on Logistic Regression, Random Forest, and XGBoost, model performance improved to around 0.74.
 - Overall, prediction result for class 1 is much lower, one potential reason is the imbalanced dataset, where class 1 (high reviews) accounts for 41% of total dataset, and with smaller variance compared to class 0.
 - Bagging and Random Forest are underfitting while XGB is singificantly overfitted, further processes such as feature engineering and parameters tuning as the next steps to improve the model.
+
+
