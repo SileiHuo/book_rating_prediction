@@ -56,7 +56,7 @@ Applied XGBoosting to enhance the underfitting with the previous Random Forest M
 Applied Logistic Regression with bagging ensemble method, Random Forest Classifer(Decision Tree), Enhance the Random Forest with XGBoost
 
 <p align="center">
-<img src="image/ModelRocCurve.png" width="500" height="500" />
+<img src="image/ModelRocCurve.png" width="600" height="500" />
 </p>
 
 ## Summary
