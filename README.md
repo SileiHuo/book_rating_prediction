@@ -24,14 +24,15 @@ Clean the Description Text Data, steps inlcuding:
 - Remove the duplicated book records due to different languages/editions for the same book
 - Combine book, user interaction and author dataset to prepare for modeling
 <p align="center">
-<img src="image/BookRatingBoxplot.png" width="750" height="400" />
+<img src="image/BookRatingBoxplot.png" width="600" height="400" />
 </p>
 
-## Modeling (Classification)** - Please refer to Notebook3
+## Modeling (Classification)
+Please refer to Notebook3
 Applied Logistic Regression with bagging ensemble method, Random Forest Classifer(Decision Tree), Enhance the Random Forest with XGBoost
 
 <p align="center">
-<img src="image/ModelRocCurve.png" width="750" height="400" />
+<img src="image/ModelRocCurve.png" width="600" height="400" />
 </p>
 
 ## Summary
