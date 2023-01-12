@@ -23,9 +23,10 @@ Clean the Description Text Data, steps inlcuding:
 **Data Processing** - Please refer to Notebook1 & Notebook2
 - Remove the duplicated book records due to different languages/editions for the same book
 - Combine book, user interaction and author dataset to prepare for modeling
-<p align="center">
-<img src="image/BookRatingBoxplot.png" width="600" height="400" />
-</p>
+
+Book Rating Distribution   |  Book Rating Box Plot
+:-------------------------:|:-------------------------:
+![1](image/BookRatingDistribution.png)  |  ![2](image/BookRatingBoxplot.png)
 
 ## Modeling (Classification)
 Please refer to Notebook3
