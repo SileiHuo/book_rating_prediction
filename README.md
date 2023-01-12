@@ -15,52 +15,30 @@ Explore NLP and Classification models to predict book rating (high/low) based on
 Clean the Description Text Data, steps inlcuding:
 - Check text data column impurity
 - Remove HTML/RegExp Tags using regexpression cleaning by importing re
-```python
-import re
-
-CLEANR = re.compile('<.*?>|&([a-z0-9]+|#[0-9]{1,6}|#x[0-9a-f]{1,6});')
-
-def cleantext(text):
-    cleantext = re.sub(CLEANR, ' ', text)
-    return cleantext
-```
 - Remove newline/whitespace tags
-```python
-# define functin of removing slashn
-def remove_slashn(text):
-    # remove the '\n' in sentence
-    text = text.replace('\n', ' ')
-    
-    return text
-```
 - Adjust double dashes, remove punctuations and numbers
-
-```python
-# define function
-
-def remove_punct_number(sentence):
-    # replace double dash
-    sentence = sentence.replace('--', '- -')
-    # remove digits
-    sentence = re.sub(r'\d+', '', sentence)
-    
-    for punctuation_mark in string.punctuation:
-        sentence = sentence.replace(punctuation_mark,'')
-    
-    return sentence
-```
 - Using fasttext to detect English language
+- Word Vectorization, using NLTK library to remove stop words and lemmatize words
 
-```python
-# define the language detect 
+**Data Processing** - Please refer to Notebook1 & Notebook2
+- Remove the duplicated book records due to different languages/editions for the same book
+- Combine book, user interaction and author dataset to prepare for modeling
+<p align="center">
+<img src="image/BookRatingBoxplot.png" width="750" height="400" />
+</p>
 
-def fasttext_language_predict(text, model = language_model):
-    text = str(text).replace("\n", " ")
-    prediction = model.predict([text])
-    
-    return str(prediction[0])[12:14]
-```
+## Modeling (Classification)** - Please refer to Notebook3
+Applied Logistic Regression with bagging ensemble method, Random Forest Classifer(Decision Tree), Enhance the Random Forest with XGBoost
 
-**
+<p align="center">
+<img src="image/ModelRocCurve.png" width="750" height="400" />
+</p>
 
+## Summary
 
+Applied different classifiers on the book dataset to predict book rating,
+
+- Base model Logistic Regression f1 score: 0.71
+- Applied ensemble methods, including bagging on Logistic Regression, Random Forest, and XGBoost, model performance improved to around 0.74.
+- Overall, prediction result for class 1 is much lower, one potential reason is the imbalanced dataset, where class 1 (high reviews) accounts for 41% of total dataset, and with smaller variance compared to class 0.
+- Bagging and Random Forest are underfitting while XGB is singificantly overfitted, further processes such as feature engineering and parameters tuning as the next steps to improve the model.
